@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import { config  } from "dotenv";
 import cookieParser from "cookie-parser";
+// import connectDb from "./config/db.js";
 
 config();
 const app = express();
@@ -18,5 +19,3 @@ app.use(cookieParser())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-// DATABASE CONNECTION
-connectDB();
