@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-export const connectDB = async () => {
+export const connectDb = async () => {
     mongoose
     .connect(process.env.MONGODB_URI, {
         dbName: "corporate_work_management_system"
