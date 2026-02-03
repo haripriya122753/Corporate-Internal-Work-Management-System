@@ -28,4 +28,15 @@ export const errorMiddleware = (err, req, res, next) => {
         const message = "Resource not found. Invalid: " + err.path;
         err = new ErrorHandler(message, 400);
     }
-}
+
+    const errorMessage = err.errors
+        ? Object.values(err.errors)
+            .map((value) => value.message)
+            .join(", ")
+        : err.message;
+
+    return res.status(err.statusCode).json({
+        success: false,
+        message: errorMessage,
+    });
+};
