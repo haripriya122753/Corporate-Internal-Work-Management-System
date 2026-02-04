@@ -41,4 +41,24 @@ const userSchema = new mongoose.Schema({
     trim: true,
     default: null,
   },
+  experties: {
+    type: [String],
+    default: null,
+  },
+  maxSubordinates: {
+    type: Number,
+    default: 10,
+    min: [1, "Min  maxSubordinates must be at least 1"],
+  },
+  assignedEmployees: [
+    {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+    },
+  ],
+  manager: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    default: null,
+  },
 });
